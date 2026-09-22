@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pricing — Taste Radar</title>
+<meta name="theme-color" content="#0a0f1e">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="/"><img src="/icons/icon.svg" alt="Taste Radar logo">Taste Radar</a>
+    <nav class="links"><a href="/pricing">Pricing</a><a href="/sample">Sample</a></nav>
+  </header>
+
+  <h1>Simple pricing.</h1>
+  <p class="lede">Start free. Go Pro when you want the full radar.</p>
+
+  <div class="plan">
+    <h3>Free</h3>
+    <div class="price">$0</div>
+    <ul>
+      <li>Full taste profile + Taste Score</li>
+      <li>Hidden-gem discovery list</li>
+      <li>3 share cards per month</li>
+      <li>Radar card style</li>
+      <li>Recent ledger preview (10 latest entries)</li>
+    </ul>
+    <a class="btn ghost" href="/auth/spotify">Start free</a>
+  </div>
+
+  <div class="plan pro">
+    <h3>Radar Pro</h3>
+    <div class="price">$1<span class="muted" style="font-size:16px;font-weight:400">/month</span></div>
+    <ul>
+      <li>Everything in Free</li>
+      <li><strong>Unlimited</strong> share cards</li>
+      <li>All three card styles: Radar, Nocturne, Signal</li>
+      <li>Full ledger history — every artist, every timestamp</li>
+      <li>Milestone alerts when ledger artists cross 10K / 50K / 100K / 500K / 1M followers</li>
+    </ul>
+    <a class="btn" href="/auth/spotify" id="proBtn">Go Pro — $1/month</a>
+    <p class="small muted" style="margin-top:10px">Billed monthly via Stripe. Cancel anytime from your account.</p>
+  </div>
+
+  <p class="small muted">Prices in USD. Taste Radar keeps your listening data private — we never sell identifiable listening data, on any plan.</p>
+
+  <footer>
+    <a href="/pricing">Pricing</a><a href="/privacy">Privacy</a><a href="/sample">Sample profile</a>
+    <p style="margin-top:10px">Taste Radar · You heard it first.</p>
+  </footer>
+</div>
+<script>
+document.getElementById('proBtn').addEventListener('click', async (e) => {
+  e.preventDefault();
+  const me = await fetch('/api/me').then(r => r.json()).catch(() => ({}));
+  if (!me.logged_in) { location.href = '/auth/spotify'; return; }
+  if (me.paid) { location.href = '/app.html'; return; }
+  const r = await fetch('/api/checkout', { method: 'POST' });
+  const d = await r.json();
+  if (d.url) location.href = d.url;
+  else alert(d.error === 'billing_not_configured' ? 'Billing is not enabled yet.' : 'Checkout failed. Try again.');
+});
+</script>
+</body>
+</html>

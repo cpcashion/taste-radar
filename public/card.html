@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Share card — Taste Radar</title>
+<meta name="theme-color" content="#0a0f1e">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="/"><img src="/icons/icon.svg" alt="Taste Radar logo">Taste Radar</a>
+    <nav class="links"><a href="/app.html">My Radar</a></nav>
+  </header>
+
+  <div id="loading" class="center" style="padding:60px 0"><span class="spin"></span><p class="muted">Building your card…</p></div>
+  <div id="stage" class="card-stage" style="display:none">
+    <canvas id="cardCanvas" width="1080" height="1350"></canvas>
+    <div class="style-row" id="styleRow">
+      <button class="style-btn active" data-style="radar">Radar</button>
+      <button class="style-btn" data-style="nocturne">Nocturne</button>
+      <button class="style-btn" data-style="signal">Signal</button>
+    </div>
+    <div class="row" style="width:100%">
+      <button class="btn" id="saveBtn">Save image</button>
+      <button class="btn ghost" id="shareBtn">Share</button>
+    </div>
+    <p class="small muted center" id="cardNote" style="margin-top:10px"></p>
+  </div>
+
+  <footer>
+    <a href="/pricing">Pricing</a><a href="/privacy">Privacy</a><a href="/sample">Sample profile</a>
+    <p style="margin-top:10px">Taste Radar · You heard it first.</p>
+  </footer>
+</div>
+<script src="/js/card.js"></script>
+</body>
+</html>

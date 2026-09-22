@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: taste-radar
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: APP_URL
+        sync: false # set to your public URL, e.g. https://taste-radar.up.railway.app
+      - key: COOKIE_SECRET
+        generateValue: true
+      - key: CRON_SECRET
+        generateValue: true
+      - key: SPOTIFY_CLIENT_ID
+        value: d5baa23332d64e198419d95d2272be2e
+      - key: SPOTIFY_REDIRECT_URI
+        sync: false # must be allowlisted in your Spotify app settings
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_PRICE_ID
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: DATABASE_PATH
+        value: ./data/taste-radar.db

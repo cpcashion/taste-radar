@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy — Taste Radar</title>
+<meta name="theme-color" content="#0a0f1e">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="/"><img src="/icons/icon.svg" alt="Taste Radar logo">Taste Radar</a>
+    <nav class="links"><a href="/pricing">Pricing</a><a href="/sample">Sample</a></nav>
+  </header>
+
+  <h1>Privacy</h1>
+  <p class="muted">Last updated: September 22, 2026</p>
+
+  <h2>What we store</h2>
+  <ul>
+    <li>Your Spotify profile basics: Spotify user ID, display name, and email (if your Spotify account shares it).</li>
+    <li>Spotify access and refresh tokens, so we can read your library and keep your profile fresh. Tokens are stored server-side and never shown to anyone but our server.</li>
+    <li>A snapshot of your scanned library: artist names, Spotify popularity values, follower counts, genres, and image URLs — all read from the Spotify API.</li>
+    <li>Your discovery ledger: the artists we flagged as hidden gems, with the timestamp we first saw them.</li>
+    <li>Milestone alerts generated from follower-count checks.</li>
+    <li>Billing state (free vs. Radar Pro) and a Stripe customer ID if you subscribe. We never see or store your card number — Stripe handles payment.</li>
+  </ul>
+
+  <h2>What we don't do</h2>
+  <ul>
+    <li><strong>We never sell your data.</strong> Not your listening history, not your profile, not aggregates tied to you. Nobody can buy identifiable listening data from us because it isn't for sale.</li>
+    <li>We don't invent discovery dates, listener counts, or rankings. Every number shown comes from a Spotify API response, or is clearly labeled illustrative or sample.</li>
+    <li>We don't post to Spotify or share anything on your behalf without you pressing the button.</li>
+  </ul>
+
+  <h2>Your controls</h2>
+  <ul>
+    <li><strong>Export:</strong> download everything we store about you as JSON from the app's account section.</li>
+    <li><strong>Delete:</strong> delete your account and we remove your profile, tokens, scans, ledger, and alerts. Spotify-side access can also be revoked anytime at <span class="muted">spotify.com → Account → Apps</span>.</li>
+  </ul>
+
+  <h2>Spotify data</h2>
+  <p>We use the Spotify Web API under Spotify's Developer Terms. Follower counts and popularity values come straight from Spotify's responses. Spotify does not provide monthly listener counts through its API, so anywhere you see audience numbers on Taste Radar, they are follower counts unless labeled otherwise.</p>
+
+  <footer>
+    <a href="/pricing">Pricing</a><a href="/privacy">Privacy</a><a href="/sample">Sample profile</a>
+    <p style="margin-top:10px">Taste Radar · You heard it first.</p>
+  </footer>
+</div>
+</body>
+</html>

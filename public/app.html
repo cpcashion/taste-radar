@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Radar — Taste Radar</title>
+<meta name="theme-color" content="#0a0f1e">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icons/icon.svg">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="/"><img src="/icons/icon.svg" alt="Taste Radar logo">Taste Radar</a>
+    <nav class="links"><a href="/auth/logout" id="logout">Log out</a></nav>
+  </header>
+
+  <div id="loading" class="center" style="padding:60px 0"><span class="spin"></span><p class="muted">Loading your radar…</p></div>
+  <div id="app" style="display:none">
+
+    <div class="toolbar" style="display:flex;gap:10px;align-items:center;justify-content:space-between">
+      <div><strong id="hello"></strong><div class="small muted" id="planLine"></div></div>
+      <button class="btn small-btn" id="scanBtn">Scan library</button>
+    </div>
+
+    <div id="noScan" style="display:none" class="card center">
+      <h3>No scan yet</h3>
+      <p class="muted">Tap <strong>Scan library</strong> to read your liked songs, followed artists, and top artists — then your taste profile appears here.</p>
+    </div>
+
+    <div id="profile" style="display:none">
+      <div class="card">
+        <div class="score-dial">
+          <div class="score-num" id="scoreNum">–</div>
+          <div style="font-weight:800">Taste Score · out of 100</div>
+          <div class="score-cap" id="scoreWhy"></div>
+        </div>
+      </div>
+
+      <h2>Your spectrum</h2>
+      <div class="chips" id="genres"></div>
+
+      <h2>Hidden gems</h2>
+      <p class="small muted" id="gemsSub"></p>
+      <div class="grid" id="gems"></div>
+
+      <h2>Discovery ledger</h2>
+      <p class="small muted">Timestamped the moment we first spotted each artist. Your proof you heard them first.</p>
+      <div id="ledger"></div>
+      <div id="ledgerNote" class="small muted"></div>
+
+      <h2>Milestone alerts</h2>
+      <div id="alerts"></div>
+
+      <div class="divider"></div>
+      <h2>Account</h2>
+      <div class="card">
+        <div class="row">
+          <a class="btn ghost" href="/api/account/export">Export my data</a>
+        </div>
+        <p class="small muted" style="margin-top:12px">Share cards used this month: <strong id="cardsUsed"></strong></p>
+        <div id="billingBox" style="margin-top:8px"></div>
+        <p style="margin-top:16px"><a href="#" id="deleteAcct" class="small" style="color:#ff8f8f">Delete my account and all data</a></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <a href="/pricing">Pricing</a><a href="/privacy">Privacy</a><a href="/sample">Sample profile</a>
+    <p style="margin-top:10px">Taste Radar · You heard it first.</p>
+  </footer>
+</div>
+<script src="/js/app.js"></script>
+</body>
+</html>
